@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add</title>
+</head>
+<style type="text/css">
+	body{
+		background-color: #303030;
+		justify-content: center;
+	}
+	.left{
+		width: 30%;
+	}
+	.right{
+		width: 80%;
+		display: flex;
+	}
+	.left1,.right2{
+		text-align: center;
+		width: 50%;
+	}
+	form{
+		display: flex;
+		width: 100%;
+	}
+	input[type="number"]{
+		background-color: grey;
+		color: #282828;
+		text-align: center;
+		width: 30%;
+	}
+	input[type="submit"]{
+		background-color: grey;
+		border: none;
+	}
+	h1{
+		text-align: center;
+		color: grey;
+	}
+	h4{
+		color: grey;
+	}
+	.error{
+		color: red;
+		font-size: .7em;
+	}
+	label,span{
+		letter-spacing: 1px;
+		font-size: 12px;
+		color: grey;
+	}
+
+</style>
+<body>
+<h1>Addition</h1>
+
+<?php
+$first = $second = $third = $four = $fifth = "";
+$firsterror = $seconderror = $thirderror = $fourerror = $fiftherror= "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if(empty($_POST["first"])){
+		$firsterror = "First number is Required!";
+	}
+	else{
+		$first = $_POST["first"];
+	}
+	if(empty($_POST["second"])){
+		$seconderror = "Second number is Required!";
+	}
+	else{
+		$second = $_POST["second"];
+	}
+	if(empty($_POST["third"])){
+		$thirderror = "Third number is Required!";
+	}
+	else{
+		$third = $_POST["third"];
+	}
+	if(empty($_POST["four"])){
+		$fourerror = "Four number is Required!";
+	}
+	else{
+		$four = $_POST["four"];
+	}
+	if(empty($_POST["fifth"])){
+		$fiftherror = "Fifth number is Required!";
+	}
+	else{
+		$fifth = $_POST["fifth"];
+	}
+}
+?>
+    <form method="POST" action="<?php htmlspecialchars("PHP_SELF"); ?>">
+    <div class="left">
+    <label>First digit:</label><br>
+    <input type="number" name="first" autocomplete="off" value="<?php echo $first; ?>"><br>
+    <span class="error"><?php echo $firsterror; ?></span><br>
+    <label>Second digit:</label><br>
+    <input type="number" name="second" autocomplete="off" value="<?php echo $second; ?>"><br>
+    <span class="error"><?php echo $seconderror; ?></span><br>
+    <label>Third digit:</label><br>
+    <input type="number" name="third" autocomplete="off" value="<?php echo $third; ?>"><br>
+    <span class="error"><?php echo $thirderror; ?></span><br>
+    <label>Fourth digit:</label><br>
+    <input type="number" name="four" autocomplete="off" value="<?php echo $four; ?>"><br>
+    <span class="error"><?php echo $fourerror; ?></span><br>
+    <label>Fifth digit:</label><br>
+    <input type="number" name="fifth" autocomplete="off" value="<?php echo $fifth; ?>"><br>
+    <span class="error"><?php echo $fiftherror; ?></span><br>
+    <input type="submit" value="Add">
+    </div>
+    <?php
+    if($first && $second && $third && $four && $fifth){
+	$two_digits = $first + $second;
+	$three_digits = $first + $second + $third;
+	$four_digits = $first + $second + $third + $four;
+	$five_digits = $first + $second + $third + $four + $fifth;
+    echo "<div class='right'>
+    <div class='left1'>
+    <h4>2 Digits:</h4>
+    <span>Formula: $first + $second</span><br>
+    <span><b>Answer: $two_digits</b></span><br><br>
+    <h4>3 Digits:</h4>
+    <span>Formula: $first + $second + $third</span><br>
+    <span><b>Answer: $three_digits</b></span>
+    </div>
+    <div class='right2'>
+    <h4>4 Digits:</h4>
+    <span>Formula: $first + $second + $third + $four</span><br>
+    <span><b>Answer: $four_digits</b></span><br><br>
+    <h4>5 Digits:</h4>
+    <span>Formula: $first + $second + $third + $four + $fifth</span><br>
+    <span><b>Answer: $five_digits</b></span>
+    </div>
+    </div>";
+    };
+    echo "</form>";
+    ?>
+    </div>
+    </div>
+
+
+</body>
+</html>

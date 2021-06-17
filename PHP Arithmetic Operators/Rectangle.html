@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rectangle</title>
+</head>
+<style type="text/css">
+	body{
+		background-color: #303030;
+		justify-content: center;
+	}
+	.left{
+		width: 30%;
+	}
+	.right{
+		width: 80%;
+	
+	}
+	.left1,.right2{
+		text-align: center;
+		width: 50%;
+	}
+	form{
+		display: flex;
+		width: 100%;
+	}
+	input[type="number"]{
+		background-color: grey;
+		color: #282828;
+		text-align: center;
+		width: 30%;
+	}
+	input[type="submit"]{
+		background-color: grey;
+		border: none;
+	}
+	h1{
+		text-align: center;
+		color: grey;
+	}
+	h4{
+		color: grey;
+	}
+	.error{
+		color: red;
+		font-size: .7em;
+	}
+	label,span{
+		letter-spacing: 1px;
+		font-size: 12px;
+		color: grey;
+	}
+</style>
+<body>
+<h1>Area and Perimeter of Rectangle</h1>
+
+<?php
+$first = $second = "";
+$firsterror = $seconderror = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if(empty($_POST["first"])){
+		$firsterror = "First number is Required!";
+	}
+	else{
+		$first = $_POST["first"];
+	}
+	if(empty($_POST["second"])){
+		$seconderror = "Second number is Required!";
+	}
+	else{
+		$second = $_POST["second"];
+	}
+}
+	
+?>
+    <form method="POST" action="<?php htmlspecialchars("PHP_SELF"); ?>">
+    <div class="left">
+    <label>Lenght :</label><br>
+    <input type="number" name="first" autocomplete="off" value="<?php echo $first; ?>"><br>
+    <span class="error"><?php echo $firsterror; ?></span><br>
+    <label>Width :</label><br>
+    <input type="number" name="second" autocomplete="off" value="<?php echo $second; ?>"><br>
+    <span class="error"><?php echo $seconderror; ?></span><br>
+    <input type="submit" value="Find">
+
+    </div>
+    <?php
+    if($first && $second){
+    $Perimeter = ($first + $second)*2;
+	$Area = $first * $second;
+    echo "<div class='right'>
+    <h4>Formula of Perimeter: $first * $second </h4>
+    <h4>Formula of Area: ($first + $second) * 2 </h4>
+    <h4>The Perimeter of Rectangle is $Perimeter</h4>
+    <h4>The Area of Rectangle is $Area</h4>
+    </div>";
+    };
+    echo "</form>";
+    ?>
+    </div>
+    </div>
+
+
+</body>
+</html>

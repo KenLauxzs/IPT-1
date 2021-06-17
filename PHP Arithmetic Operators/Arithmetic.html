@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Value</title>
+</head>
+<body>
+
+<?php
+
+if($_POST['add'] && ($_SERVER['REQUEST_METHOD'] == "POST")){
+	$arithmetic = "Addition";
+	$op ="+";
+}else if($_POST['sub'] && ($_SERVER['REQUEST_METHOD'] == "POST")){
+	$arithmetic = "Subtraction";
+	$op ="-";
+}else if($_POST['mult'] && ($_SERVER['REQUEST_METHOD'] == "POST")){
+	$arithmetic = "Multiplication";
+	$op ="*";
+}else if($_POST['mult'] && ($_SERVER['REQUEST_METHOD'] == "POST")){
+	$arithmetic = "Division";
+	$op ="/";
+}
+?>
+
+<div class="main">
+<h1><?php echo $arithmetic; ?></h1>
+<div class="row">
+<h3><?php echo $arithmetic; ?> 2 digit</h3><br>
+<form action="<?php htmlspecialchars(PHP_SEF); ?>" method="post">
+<label for="first">First number: </label><input type="text" id="first">
+<label for="second">Second number: </label><input type="text" id="second">
+<input type="submit" id="gg" value="Answer">
+</form>
+<?php 
+    $num = $_GET['first'];
+	$num1 = $_GET['second'];
+if (isset($POST['gg'])){
+	if($op == "+"){
+		$ans = $num + $num1;
+	}else if($op == "-"){
+		$ans = $num - $num1;
+	}else if($op == "*"){
+		$ans = $num * $num1;
+	}else if($op == "/"){
+		$ans = $num / $num1;
+	}
+}
+?>
+<span><?php echo $num . $op . $num1;?></span>
+<span><?php echo $ans; ?></span>
+<br><br>
+<h3><?php echo $arithmetic; ?> 3 digit</h3><br>
+<form action="<?php htmlspecialchars(PHP_SEF); ?>" method="post">
+<label for="first">First number: </label><input type="text" id="first">
+<label for="second">Second number: </label><input type="text" id="second">
+<label for="third">Third number: </label><input type="text" id="third">
+<input type="submit" value="Answer">
+</form>
+<?php 
+    $num = $_GET['first'];
+	$num1 = $_GET['second'];
+	$num2 = $_GET['third'];
+if (isset($POST['gg'])){
+	if($op == "+"){
+		$ans = $num + $num1 + $num2;
+	}else if($op == "-"){
+		$ans = $num - $num1 - $num2;
+	}else if($op == "*"){
+		$ans = $num * $num1 * $num2;
+	}else if($op == "/"){
+		$ans = $num / $num1 / $num2;
+	}
+}
+?>
+<span><?php echo $num . $op . $num1 . $num2;?></span>
+<span><?php echo $ans1; ?></span>
+</div>
+<div class="row">
+<h3><?php echo $arithmetic; ?> 4 digit</h3><br>
+<form action="<?php htmlspecialchars(PHP_SEF); ?>" method="post">
+<label for="first">First number: </label><input type="text" id="first">
+<label for="second">Second number: </label><input type="text" id="second">
+<label for="third">Third number: </label><input type="text" id="third">
+<label for="fourth">Fourth number: </label><input type="text" id="fourth">
+<input type="submit" value="Answer">
+</form>
+<?php 
+    $num = $_GET['first'];
+	$num1 = $_GET['second'];
+	$num2 = $_GET['third'];
+	$num3 = $_GET['fourth'];
+if (isset($POST['gg'])){
+	if($op == "+"){
+		$ans = $num + $num1 + $num2 + $num3;
+	}else if($op == "-"){
+		$ans = $num - $num1 - $num2 - $num3;
+	}else if($op == "*"){
+		$ans = $num * $num1 * $num2 * $num3;
+	}else if($op == "/"){
+		$ans = $num / $num1 / $num2 / $num3;
+	}
+}
+?>
+<span><?php echo $num . $op . $num1 . $num2 . $num3;?></span>
+<span><?php echo $ans2; ?></span>
+<br><br>
+<h3><?php echo $arithmetic; ?> 5 digit</h3><br>
+<form action="<?php htmlspecialchars(PHP_SEF); ?>" method="post">
+<label for="first">First number: </label><input type="text" id="first">
+<label for="second">Second number: </label><input type="text" id="second">
+<label for="third">Third number: </label><input type="text" id="third">
+<label for="fourth">Fourth number: </label><input type="text" id="fourth">
+<label for="fifth">Fifth number: </label><input type="text" id="fifth">
+<input type="submit" value="Answer">
+</form>
+<?php 
+    $num = $_GET['first'];
+	$num1 = $_GET['second'];
+	$num2 = $_GET['third'];
+	$num3 = $_GET['fourth'];
+	$num4 = $_GET['fifth'];
+if (isset($POST['gg'])){
+	if($op == "+"){
+		$ans = $num + $num1 + $num2 + $num3 + $num4;
+	}else if($op == "-"){
+		$ans = $num - $num1 - $num2 - $num3 - $num4;
+	}else if($op == "*"){
+		$ans = $num * $num1 * $num2 * $num3 * $num4;
+	}else if($op == "/"){
+		$ans = $num / $num1 / $num2 / $num3 / $num4;
+	}
+}
+?>
+<span><?php echo $num . $op . $num1 . $num2 . $num3 . $num4;?></span>
+<span><?php echo $ans3; ?></span>
+</div>
+
+</body>
+</html>
